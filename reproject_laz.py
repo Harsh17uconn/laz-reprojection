@@ -12,8 +12,8 @@ import signal
 # Constants
 TIMEOUT_SECONDS = 1200
 LOG_DIR = "logs"
-CORRUPTED_LOG = os.path.join(LOG_DIR, "corrupted_filesB1.log")
-TIMEOUT_LOG = os.path.join(LOG_DIR, "timeout_filesB1.log")
+CORRUPTED_LOG = os.path.join(LOG_DIR, "corrupted_files.log")
+TIMEOUT_LOG = os.path.join(LOG_DIR, "timeout_files.log")
 FTUS_TO_METERS = 0.304800609601219
 
 def setup_logging():
@@ -109,8 +109,8 @@ def signal_handler(signum, frame):
     raise KeyboardInterrupt
 
 def main():
-    input_folder = "G:/test/Before"
-    output_folder = "G:/test/reprojected2"
+    input_folder = "path/to/your/inputfolder/"
+    output_folder = "path/to/your/outputfolder/"
 
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
@@ -135,7 +135,7 @@ def main():
         logging.info("No files to process. Exiting.")
         return
 
-    num_workers = min(cpu_count(), total_files, 50)
+    num_workers = min(cpu_count(), total_files, 100) # adjust the number of CPU's intended to use
     logging.info(f"Starting processing with {num_workers} workers...")
 
     start_time = time.time()
