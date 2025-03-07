@@ -52,7 +52,8 @@ The reprojection is defined in a JSON pipeline within the reproject_laz_file fun
 - **Write**: Saves the transformed data to a new LAS file using writers.las.
 
 - **Here’s the pipeline JSON structure**:
-   ```{
+   ```
+   {
        "pipeline": [
            {"type": "readers.las", "filename": "input_laz_path"},
            {
@@ -73,7 +74,8 @@ The reprojection is defined in a JSON pipeline within the reproject_laz_file fun
 
 ## 3. Transformation Matrix
 - **The core of the reprojection is the scale_matrix, a 4x4 homogeneous transformation matrix**:
-   ```scale_matrix = [
+   ```
+   scale_matrix = [
        FTUS_TO_METERS, 0, 0, 0,
        0, FTUS_TO_METERS, 0, 0,
        0, 0, FTUS_TO_METERS, 0,
